@@ -234,7 +234,7 @@
   }
   .sc:hover { border-color: rgba(0,200,240,0.2); transform: translateY(-2px); }
   .sc.core { border-color: rgba(0,200,240,0.18); background: rgba(0,200,240,0.028); }
-  .sc.coming { opacity: 0.45; }
+  .sc.coming { opacity: 0.72; }
   .sc-status {
     display: inline-block; font-size: 0.62rem; font-weight: 700;
     letter-spacing: 0.06em; padding: 2px 7px; border-radius: 4px; margin-bottom: 0.8rem;
@@ -388,6 +388,78 @@
     .cta-box { padding:2rem 1.2rem; }
     section { padding:3rem 5%; }
   }
+
+  /* -- HERO EXTRA TEXT -- */
+  .hero-problem { font-size: 0.93rem; color: var(--white); font-weight: 600; margin-bottom: 0.6rem !important; }
+  .hero-trust { font-size: 0.82rem; color: var(--accent2); margin-bottom: 1.2rem !important; font-style: italic; }
+  .hero-helper { font-size: 0.74rem; color: var(--white2); margin-top: 0.5rem; margin-bottom: 1.4rem; font-style: italic; }
+  .hero-punch { font-size: 0.93rem; color: var(--accent); font-weight: 600; margin-bottom: 1rem !important; letter-spacing: -0.01em; }
+  .cta-conviction { font-size: 0.84rem; color: var(--white); font-weight: 500; margin-bottom: 1.1rem; font-style: italic; }
+
+  /* ── FLOATING WHATSAPP BUTTON ── */
+  .wa-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    display: flex; align-items: center; gap: 10px;
+    background: #25d366; color: #fff;
+    font-family: "Sora", sans-serif; font-weight: 700; font-size: 0.82rem;
+    padding: 0.65rem 1.2rem 0.65rem 0.9rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: waSlide 0.6s 1.5s ease both;
+  }
+  .wa-float:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+  .wa-float svg { width: 20px; height: 20px; flex-shrink: 0; }
+  @keyframes waSlide { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @media(max-width:600px) { .wa-float span { display:none; } .wa-float { padding: 0.8rem; border-radius: 50%; } }
+
+  /* ── WHO THIS IS FOR ── */
+  .for-section { background: #07080f; }
+  .for-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 0.85rem; margin-top: 1.8rem; }
+  .for-card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius); padding: 1.2rem;
+    text-align: center; transition: border-color 0.2s, transform 0.2s;
+  }
+  .for-card:hover { border-color: rgba(0,200,240,0.25); transform: translateY(-2px); }
+  .for-emoji { font-size: 1.8rem; margin-bottom: 0.6rem; }
+  .for-card h3 { font-size: 0.88rem; color: var(--white); margin-bottom: 0.25rem; }
+  .for-card p { font-size: 0.76rem; }
+  @media(max-width:900px) { .for-grid { grid-template-columns: repeat(2,1fr); } }
+  @media(max-width:500px) { .for-grid { grid-template-columns: 1fr 1fr; } }
+
+  /* ── FREE AUDIT SECTION ── */
+  .audit-section { background: var(--bg3); }
+  .audit-box {
+    max-width: 680px; margin: 0 auto;
+    background: var(--card); border: 1px solid rgba(0,200,240,0.15);
+    border-radius: var(--radius); padding: 2.2rem 2rem;
+    text-align: center;
+  }
+  .audit-box h2 { font-size: clamp(1.4rem,2.5vw,1.9rem); margin-bottom: 0.65rem; }
+  .audit-box p { font-size: 0.88rem; max-width: 440px; margin: 0 auto 1.4rem; }
+  .audit-items { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; margin-bottom: 1.6rem; }
+  .audit-item { font-size: 0.79rem; color: var(--accent2); display: flex; align-items: center; gap: 5px; }
+  .audit-item::before { content: '✓'; font-weight: 900; }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: #25d366; color: #fff;
+    font-family: "Sora", sans-serif; font-weight: 700; font-size: 0.88rem;
+    padding: 0.75rem 1.6rem; border-radius: 8px;
+    transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-wa:hover { background: #1ebe5d; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,211,102,0.35); }
+  .btn-wa svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* ── TRANSPARENCY NOTE ── */
+  .transparency {
+    margin-top: 2rem; padding: 1.1rem 1.3rem;
+    background: rgba(0,200,240,0.04); border: 1px solid rgba(0,200,240,0.1);
+    border-radius: var(--radius); font-size: 0.82rem; color: var(--white2);
+    line-height: 1.65; text-align: left;
+  }
+  .transparency strong { color: var(--white); }
 </style>
 </head>
 <body>
@@ -406,7 +478,7 @@
   </ul>
   <div class="nav-right">
     <div class="hamburger"><span></span><span></span><span></span></div>
-    <a href="#contact" class="nav-cta btn">Claim your spot</a>
+    <a href="#contact" class="nav-cta btn">Get Free Audit</a>
   </div>
 </nav>
 
@@ -414,23 +486,29 @@
 <div class="hero-wrap">
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-tag"><div class="hero-tag-dot"></div> A new kind of digital marketing partner</div>
-      <h1>Grow your business with digital marketing that's built around your goals</h1>
-      <p>SolidNote is a focused digital marketing team running paid ads, lead generation, and social media — without the agency bloat, long contracts, or vanity metrics.</p>
+      <div class="hero-tag"><div class="hero-tag-dot"></div> Performance marketing for local and growing businesses</div>
+      <h1>We help local and growing businesses get consistent leads — without wasting money on ads</h1>
+      <p class="hero-problem">Most businesses waste money on ads without getting real leads. We fix that.</p>
+      <p class="hero-punch">You don’t need more clicks. You need more customers.</p>
+      <p>SolidNote runs your paid ads, builds your lead funnels, and manages your digital presence — so you get more enquiries without dealing with the complexity.</p>
+      <p class="hero-trust">No technical knowledge required — we handle everything from setup to results.</p>
 
       <div class="urgency">
         <div class="urgency-dot"></div>
-        We are taking on a small number of first clients. Every project gets our full attention.
+        We work with a small number of clients — so you get real focus, not just a service plan.
       </div>
 
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-solid">Book a free 30-minute call</a>
-        <a href="#why" class="btn btn-outline">See how we work</a>
+        <a href="https://wa.me/917382028579?text=Hi%2C%20I%27d%20like%20a%20free%20growth%20audit%20for%20my%20business" target="_blank" class="btn btn-solid">Get Free Audit on WhatsApp</a>
+        <a href="mailto:hello@solidnote.in" class="btn btn-outline">Email Us Instead</a>
       </div>
+      <p class="hero-helper">Takes less than 2 minutes &bull; No commitment &nbsp;&nbsp;|&nbsp;&nbsp; Prefer email? We&rsquo;ll respond within a few hours.</p>
 
       <div class="founder-card">
         <div class="founder-av">S</div>
-        <p><strong>Founder-led. No agency middlemen.</strong><br>You work directly with us — not handed off to a junior exec.</p>
+        <p><strong>You work directly with the founder.</strong><br>No account managers. No layers.<br><br>Every strategy, ad, and funnel is handled personally — to ensure results, not just activity.</p>
+        <p style="font-size:0.72rem; color:var(--accent2); margin-top:0.5rem; font-style:italic;">We focus on a small number of clients to deliver real results.</p>
+        <p style="font-size:0.71rem; color:var(--white2); margin-top:0.4rem; font-style:italic; opacity:0.75;">Built with real-world marketing experience — not theory.</p>
       </div>
     </div>
     <div class="hero-right">
@@ -518,7 +596,7 @@
           </div>
         </div>
         <div class="vision-strip">
-          <strong>Coming soon:</strong> WhatsApp automation, CRM pipelines, and retention systems — so every lead you generate is followed up, nurtured, and converted automatically.
+          <strong>Coming next:</strong> WhatsApp automation, CRM pipelines, and retention systems — so every lead you generate is followed up, nurtured, and converted automatically.
         </div>
       </div>
     </div>
@@ -530,8 +608,8 @@
   <div class="container">
     <div class="reveal" style="margin-bottom:2rem;">
       <span class="section-label">What we do</span>
-      <h2>Digital marketing — end to end</h2>
-      <p style="max-width:500px;">We run the ads, generate the leads, build the content, and track every rupee back to revenue. No fluff, no vanity metrics.</p>
+      <h2>What we do for you</h2>
+      <p style="max-width:500px;">Paid ads. Lead funnels. Social media. Performance marketing.<br>We handle it end to end — so you can focus on running your business.</p>
     </div>
 
     <div class="divider-label reveal">Digital marketing — our core</div>
@@ -575,22 +653,22 @@
       </div>
     </div>
 
-    <div class="divider-label reveal">Automation and AI — coming soon</div>
+    <div class="divider-label reveal">Automation and AI — next phase</div>
     <div class="services-grid reveal">
       <div class="sc coming">
-        <span class="sc-status soon">Coming soon</span>
+        <span class="sc-status soon">Next phase</span>
         <h3>WhatsApp automation and follow-ups</h3>
         <p>Automated WhatsApp sequences that follow up with leads instantly, re-engage cold contacts, and recover abandoned enquiries — running 24/7.</p>
         <div class="sc-tags"><span class="sc-tag">WhatsApp API</span><span class="sc-tag">Auto follow-up</span><span class="sc-tag">Lead recovery</span></div>
       </div>
       <div class="sc coming">
-        <span class="sc-status soon">Coming soon</span>
+        <span class="sc-status soon">Next phase</span>
         <h3>CRM and sales pipeline setup</h3>
         <p>A structured CRM that tracks every lead, automates pipeline stages, and shows exactly where deals are slipping — so nothing falls through the cracks.</p>
         <div class="sc-tags"><span class="sc-tag">CRM build</span><span class="sc-tag">Pipeline</span><span class="sc-tag">Lead tracking</span></div>
       </div>
       <div class="sc coming">
-        <span class="sc-status soon">Coming soon</span>
+        <span class="sc-status soon">Next phase</span>
         <h3>Retention and loyalty systems</h3>
         <p>Re-engagement flows, loyalty campaigns, and win-back sequences that monetise your existing customers — the most overlooked revenue lever.</p>
         <div class="sc-tags"><span class="sc-tag">Re-engagement</span><span class="sc-tag">Win-back</span><span class="sc-tag">Loyalty</span></div>
@@ -600,8 +678,46 @@
     <div class="full-stack-note reveal">
       <div class="full-stack-note-line"></div>
       <div>
-        <h3>The SolidNote difference: ads, content, and strategy working together.</h3>
-        <p>Most agencies run ads in isolation. We connect your paid campaigns, social presence, and strategy into one cohesive system — so every channel reinforces the others and every rupee goes further.</p>
+        <h3>Paid ads, funnels, and content — working together.</h3>
+        <p>Most agencies run ads in isolation. We connect your paid campaigns (Google, Meta), lead funnels, and social presence into one cohesive system — so every channel reinforces the others. WhatsApp is your fastest response channel; we make sure every lead lands there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="for-section" id="who">
+  <div class="container">
+    <div class="reveal" style="max-width:560px;">
+      <span class="section-label">Who we work best with</span>
+      <h2>Built for businesses ready to grow</h2>
+      <p>If you’re serious about getting consistent leads, this is built for you.</p>
+    </div>
+    <div class="for-grid reveal">
+      <div class="for-card">
+        <div class="for-emoji">🏪</div>
+        <h3>Local Service Businesses</h3>
+        <p>Salons, clinics, gyms, tutors, repair services — anyone who needs a steady flow of local enquiries.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-emoji">🚀</div>
+        <h3>Growing Brands &amp; Startups</h3>
+        <p>Early-stage businesses that need to build awareness and generate their first consistent pipeline of leads.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-emoji">🎓</div>
+        <h3>Coaches &amp; Consultants</h3>
+        <p>Build your personal brand and attract qualified clients through social media and paid funnels.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-emoji">📈</div>
+        <h3>Businesses Wanting Consistent Leads</h3>
+        <p>You’re getting some leads but they’re unreliable — you want a system that works every month.</p>
+      </div>
+      <div class="for-card">
+        <div class="for-emoji">💡</div>
+        <h3>Businesses New to Digital</h3>
+        <p>You haven’t gone digital yet, or tried ads and it didn’t work. We start fresh and build it right from day one.</p>
       </div>
     </div>
   </div>
@@ -713,48 +829,26 @@
   </div>
 </section>
 
-<!-- LEAD MAGNET -->
-<section class="lead" id="audit">
-  <div class="container">
-    <div class="two-col">
-      <div class="reveal">
-        <div class="lm-card">
-          <div class="lm-eyebrow">Free resource</div>
-          <h2>Free marketing audit and growth blueprint</h2>
-          <p>A 30-minute session where we audit your current marketing, then hand you a written report covering your top three growth opportunities and exactly how to act on them.</p>
-          <div class="lm-items">
-            <div class="lm-item"><span class="lm-check">+</span> Paid ads performance review</div>
-            <div class="lm-item"><span class="lm-check">+</span> Social media and content gap analysis</div>
-            <div class="lm-item"><span class="lm-check">+</span> Competitor ad and keyword research</div>
-            <div class="lm-item"><span class="lm-check">+</span> Top three quick-win recommendations</div>
-            <div class="lm-item"><span class="lm-check">+</span> Written report, yours to keep</div>
-          </div>
-          <a href="#contact" class="btn btn-solid" style="width:100%;text-align:center;display:block;">Claim your free marketing audit</a>
-          <p class="lm-note">No pitch, no pressure. You walk away with useful insights regardless.</p>
-        </div>
-      </div>
 
-      <div class="reveal">
-        <span class="section-label">Why this works</span>
-        <h2 style="margin-bottom:1.3rem;">You will walk away with real clarity</h2>
-        <div class="lm-feats">
-          <div class="lm-feat">
-            <div class="lm-feat-bar"></div>
-            <div><h3>Know exactly where you are losing revenue</h3><p>Most businesses have two or three major leaks they don't know about. We find them in the session.</p></div>
-          </div>
-          <div class="lm-feat">
-            <div class="lm-feat-bar"></div>
-            <div><h3>A clear, prioritised action plan</h3><p>Not a list of ideas — a ranked list of what to fix first for maximum revenue impact.</p></div>
-          </div>
-          <div class="lm-feat">
-            <div class="lm-feat-bar"></div>
-            <div><h3>Channels and budgets you have not optimised</h3><p>We will show you which platforms and ad formats could realistically deliver the best returns for your business.</p></div>
-          </div>
-          <div class="lm-feat">
-            <div class="lm-feat-bar"></div>
-            <div><h3>Written report, no strings attached</h3><p>Whether you work with us or not, the report is yours. We earn trust by delivering value first.</p></div>
-          </div>
-        </div>
+<!-- FREE GROWTH AUDIT -->
+<section class="audit-section" id="audit">
+  <div class="container">
+    <div class="audit-box reveal">
+      <div class="lm-eyebrow" style="color:#d4a017; font-size:0.68rem; font-weight:700; letter-spacing:0.08em; font-family:'Sora',sans-serif; margin-bottom:0.8rem;">Free for local businesses</div>
+      <h2>Get a Free Growth Audit for Your Business</h2>
+      <p>Get a free audit of your website, Instagram, or ads.<br>We’ll show you exactly where you’re losing potential customers — and what to fix.</p>
+      <div class="audit-items">
+        <span class="audit-item">Website issues</span>
+        <span class="audit-item">Ad performance gaps</span>
+        <span class="audit-item">Missed lead opportunities</span>
+        <span class="audit-item">Simple action plan</span>
+      </div>
+      <a href="https://wa.me/917382028579?text=Hi%2C%20I%27d%20like%20a%20free%20growth%20audit%20for%20my%20business" target="_blank" class="btn-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.105.546 4.083 1.502 5.802L0 24l6.335-1.662A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.371l-.359-.214-3.721.976.993-3.622-.234-.373A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+        Get Free Audit on WhatsApp
+      </a>
+      <div class="transparency">
+        <strong>Honest note:</strong> We’re working with a small number of early clients and focused entirely on getting them strong results. No published case studies yet — but you get our full attention, honest advice, and a genuine commitment to your growth.
       </div>
     </div>
   </div>
@@ -764,19 +858,19 @@
 <section id="contact" class="cta">
   <div class="container">
     <div class="cta-box reveal">
-      <div class="cta-tag">
-        <div class="urgency-dot"></div>
-        <span>Free · No obligation · 30 minutes</span>
-      </div>
-      <h2>Book a free marketing call</h2>
-      <p>A 30-minute conversation where we understand your business, review your current marketing, and tell you honestly what we think will move the needle — no pitch, no pressure.</p>
-      <p class="cta-note-small">We are just starting out, which means you get our complete focus — not a stretched team managing 50 clients.</p>
+      <h2>Have a question? Just reach out.</h2>
+      <p>No forms. No sales calls. No pressure.<br>
+      Send us a message and we’ll have a real conversation about your business — and whether we’re the right fit.</p>
 
-      <div class="cta-btns" style="margin: 1.4rem 0 0.5rem;">
-        <a href="https://calendar.google.com/calendar/appointments" target="_blank" class="btn btn-solid">Book on Google Calendar</a>
-        <a href="mailto:hello@solidnote.in" class="btn btn-outline">Send an email</a>
-      </div>
-      <p class="cta-fine">Free · 30 minutes · No obligation · hello@solidnote.in</p>
+      <p class="cta-conviction">If you’re serious about getting consistent leads, this is the next step.</p>
+      <div class="cta-btns" style="margin: 1rem 0 0.6rem;">
+        <a href="https://wa.me/917382028579?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20SolidNote" target="_blank" class="btn-wa" style="border-radius:6px;">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.105.546 4.083 1.502 5.802L0 24l6.335-1.662A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.371l-.359-.214-3.721.976.993-3.622-.234-.373A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+          WhatsApp us directly
+        </a>
+        <a href="mailto:hello@solidnote.in" class="btn btn-outline">hello@solidnote.in</a>
+      </div>
+    </div>
     </div>
   </div>
 </section>
@@ -793,6 +887,15 @@
     <a href="mailto:hello@solidnote.in">Contact</a>
   </div>
 </footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/917382028579?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20SolidNote" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.105.546 4.083 1.502 5.802L0 24l6.335-1.662A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.371l-.359-.214-3.721.976.993-3.622-.234-.373A9.818 9.818 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/>
+  </svg>
+  <span>Chat on WhatsApp</span>
+</a>
 
 <script>
   // ── Scroll reveal ──
